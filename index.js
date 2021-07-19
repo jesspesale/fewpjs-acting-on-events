@@ -18,15 +18,16 @@ document.addEventListener("keydown", function(e) {
 }); 
 
 function moveDodgerRight() {
-    let rightNumbers = dodger.style.right.replace("px", "");
-    let right = parseInt(rightNumbers, 10);
+    let rightNumbers = dodger.style.left.replace("px", "");
+    let right = parseInt(rightNumbers, 10); // parse turns it from a string to integer
 
-    if (right > 0) {
-        dodger.style.right = `${left + 1}px`
+    if (right < 360) {
+        dodger.style.left = `${right + 1}px`
     }
 }
 
 document.addEventListener("keydown", function(e) {
+    console.log(e)
     if (e.key === "ArrowRight") {
         moveDodgerRight();
     }
